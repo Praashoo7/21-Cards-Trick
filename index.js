@@ -1,0 +1,1173 @@
+/* ----------------------------- INFO-POPUP ----------------------------- */
+
+// window.addEventListener('load', () => {
+//     openHelp()
+// })
+
+function openHelp(){
+    document.getElementById('infoMain').style.opacity = 1
+    document.getElementById('infoMain').style.zIndex = 9999
+}
+function closeHelp(){
+    document.getElementById('infoMain').style.opacity = 0
+    document.getElementById('infoMain').style.zIndex = -2
+}
+
+function start(){
+    document.getElementById("allCards").style.opacity = 0;
+    setTimeout(() => {
+        document.getElementById("allCards").style.display = "none";
+    }, 400);
+    setTimeout(() => {
+        document.getElementById("game").style.display = "flex";
+    }, 400);
+    setTimeout(() => {
+        document.getElementById("game").style.opacity = 1;
+    }, 500);
+}
+
+// let first = [1, 4, 7, 10, 13, 16, 19]
+// let second = [2, 5, 8, 11, 14, 17, 20]
+// let third = [3, 6, 9, 12, 15, 18, 21]
+
+let mainData = [
+    {"name": "A", "suit": "&spades;", "color": "black", "source": ""},
+    {"name": "3", "suit": "&hearts;", "color": "red", "source": ""},
+    {"name": "2", "suit": "&spades;", "color": "black", "source": ""},
+    {"name": "A", "suit": "&hearts;", "color": "red", "source": ""},
+    {"name": "3", "suit": "&spades;", "color": "black", "source": ""},
+    {"name": "2", "suit": "&clubs;", "color": "black", "source": ""},
+    {"name": "4", "suit": "&spades;", "color": "black", "source": ""},
+    {"name": "2", "suit": "&hearts;", "color": "red", "source": ""},
+    {"name": "4", "suit": "&hearts;", "color": "red", "source": ""},
+    {"name": "A", "suit": "&clubs;", "color": "black", "source": ""},
+    {"name": "3", "suit": "&clubs;", "color": "black", "source": ""},
+    {"name": "K", "suit": "&hearts;", "color": "red", "source": "imgs/king.png"},
+    {"name": "4", "suit": "&clubs;", "color": "black", "source": ""},
+    {"name": "A", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"name": "2", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"name": "Q", "suit": "&clubs;", "color": "black", "source": "imgs/queen.png"},
+    {"name": "10", "suit": "&hearts;", "color": "red", "source": ""},
+    {"name": "4", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"name": "J", "suit": "&diamondsuit;", "color": "red", "source": "imgs/jack.png"},
+    {"name": "3", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"name": "JOKER", "suit": "", "color": "", "source": "imgs/joker.png"}
+]
+
+const main = mainData.map((value) => {
+    return console.log('&${value.suit};')
+    // if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+    //     return `
+        
+    //     `
+    // } else {
+    //     return `
+    //     <div class="aCard">
+    //         <div class="upper">
+    //             <div class="name">${value.name}</div>
+    //             <div class="symbol">'&${value.suit};'</div>
+    //         </div>
+    //         <div class="middle">'&${value.suit};'</div>
+    //         <div class="bottom">
+    //             <div class="name">${value.name}</div>
+    //             <div class="symbol">'&${value.suit};'</div>
+    //         </div>
+    //     </div>
+    //     `
+    // }
+})
+
+let first = [
+    {"id": 1, "name": "A", "suit": "&spades;", "color": "black", "source": ""},
+    {"id": 4, "name": "4", "suit": "&spades;", "color": "black", "source": ""},
+    {"id": 7, "name": "3", "suit": "&hearts;", "color": "red", "source": ""},
+    {"id": 10, "name": "2", "suit": "&clubs;", "color": "black", "source": ""},
+    {"id": 13, "name": "A", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"id": 16, "name": "4", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"id": 19, "name": "Q", "suit": "&clubs;", "color": "black", "source": "imgs/queen.png"}
+]
+let second = [
+    {"id": 2, "name": "2", "suit": "&spades;", "color": "black", "source": ""},
+    {"id": 5, "name": "A", "suit": "&hearts;", "color": "red", "source": ""},
+    {"id": 8, "name": "4", "suit": "&hearts;", "color": "red", "source": ""},
+    {"id": 11, "name": "3", "suit": "&clubs;", "color": "black", "source": ""},
+    {"id": 14, "name": "2", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"id": 17, "name": "10", "suit": "&hearts;", "color": "red", "source": ""},
+    {"id": 20, "name": "K", "suit": "&hearts;", "color": "red", "source": "imgs/king.png"}
+]
+let third = [
+    {"id": 3, "name": "3", "suit": "&spades;", "color": "black", "source": ""},
+    {"id": 6, "name": "2", "suit": "&hearts;", "color": "red", "source": ""},
+    {"id": 9, "name": "A", "suit": "&clubs;", "color": "black", "source": ""},
+    {"id": 12, "name": "4", "suit": "&clubs;", "color": "black", "source": ""},
+    {"id": 15, "name": "3", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"id": 18, "name": "J", "suit": "&diamondsuit;", "color": "red", "source": "imgs/jack.png"},
+    {"id": 21, "name": "JOKER", "suit": "", "source":"imgs/joker.png"}
+]
+
+const dataFirst = first.map((value) => {
+    if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+        return `
+        <div class="aCard">
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+            <div class="middle">
+                <img style="width:25px; height: 25px;" src="${value.source}">
+            </div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+        </div>
+        `
+    } else {
+        return `
+        <div class="aCard">
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+            <div class="middle" style="color: ${value.color}">${value.suit}</div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+        </div>
+        `
+    }
+})
+document.getElementById("firstBlock").innerHTML = dataFirst.join("");
+
+const dataSecond = second.map((value) => {
+    if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+        return `
+        <div class="aCard">
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+            <div class="middle">
+                <img style="width:25px; height: 25px;" src="${value.source}">
+            </div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+        </div>
+        `
+    } else {
+        return `
+        <div class="aCard">
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+            <div class="middle" style="color: ${value.color}">${value.suit}</div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+        </div>
+        `
+    }
+})
+document.getElementById("secondBlock").innerHTML = dataSecond.join("");
+
+const dataThird = third.map((value) => {
+    if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+        return `
+        <div class="aCard">
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+            <div class="middle">
+                <img style="width:25px; height: 25px;" src="${value.source}">
+            </div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+        </div>
+        `
+    } else {
+        return `
+        <div class="aCard">
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+            <div class="middle" style="color: ${value.color}">${value.suit}</div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+            </div>
+        </div>
+        `
+    }
+})
+document.getElementById("thirdBlock").innerHTML = dataThird.join("");
+
+let all = []
+counter = 0
+function submitSelection(){
+
+    if(document.getElementById('col1').checked || document.getElementById('col2').checked || document.getElementById('col3').checked){
+        document.getElementById("submitSelection").style.pointerEvents = "none"
+        setTimeout(() => {
+            document.querySelector('.firstBlock').classList.add('firstBlockMove')
+        }, 200);
+        setTimeout(() => {
+            document.querySelector('.secondBlock').classList.add('secondBlockMove')
+        }, 400);
+        setTimeout(() => {
+            document.querySelector('.thirdBlock').classList.add('thirdBlockMove')
+        }, 600);
+
+        setTimeout(() => {
+            if (counter < 3){
+                if(document.getElementById("col1").checked){
+                    counter += 1
+                    all=[]
+                    second.map((value) => {all.push(value)})
+                    first.map((value) => {all.push(value)})
+                    third.map((value) => {all.push(value)})
+        
+                    first=[]
+                    second=[]
+                    third=[]
+                    for(i=0; i<all.length; i=i+3){first.push(all[i])}
+                    for(i=1; i<all.length; i=i+3){second.push(all[i])}
+                    for(i=2; i<all.length; i=i+3){third.push(all[i])}
+        
+                    if(counter == 3){
+        
+                        const final = all.map((value) => {
+                            if((all[10].name == value.name) && (all[10].suit == value.suit)){
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            }
+                        })
+                        console.log("FINAL : ",final)
+                        document.getElementById('answer').innerHTML = final.join(" ")
+                        console.log(all[10])
+        
+                        document.getElementById('game').style.opacity = 0
+                        setTimeout(() => {
+                            document.getElementById('game').style.display = "none"
+                            document.getElementById('mainPile').style.display = "none"
+                        }, 200);
+                        
+                        
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.display = 'flex'
+                        }, 200);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.opacity = 1
+                        }, 400);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.opacity = 0
+                        }, 2200);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.display = 'none'
+                        }, 2700);
+                        setTimeout(() => {
+                            document.getElementById('answer').style.opacity = 1
+                        }, 3000);
+                        setTimeout(() => {
+                            setTimeout(() => {
+                                document.getElementById('answer').style.display = "flex"
+                                document.getElementById('answer').style.animationPlayState = "running"
+                            }, 50);
+                            setTimeout(() => {
+                                document.getElementById('answer').classList.add('firework-animation')
+                            }, 80);
+                        }, 3200);
+                    }
+        
+                    if(counter == 3){
+                        setTimeout(() => {
+                            const dataFirst = first.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                            })
+                            document.getElementById("firstBlock").innerHTML = dataFirst.join("");
+        
+                            const dataSecond = second.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            })
+                            document.getElementById("secondBlock").innerHTML = dataSecond.join("");
+        
+                            const dataThird = third.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            })
+                            document.getElementById("thirdBlock").innerHTML = dataThird.join("");
+                        }, 500);
+                    } else {
+                        const dataFirst = first.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("firstBlock").innerHTML = dataFirst.join("");
+        
+                        const dataSecond = second.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("secondBlock").innerHTML = dataSecond.join("");
+        
+                        const dataThird = third.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("thirdBlock").innerHTML = dataThird.join("");
+                    }
+        
+                } else if (document.getElementById("col2").checked){
+                    counter += 1
+                    all=[]
+                    first.map((value) => {all.push(value)})
+                    second.map((value) => {all.push(value)})
+                    third.map((value) => {all.push(value)})
+            
+                    first=[]
+                    second=[]
+                    third=[]
+                    for(i=0; i<all.length; i=i+3){first.push(all[i])}
+                    for(i=1; i<all.length; i=i+3){second.push(all[i])}
+                    for(i=2; i<all.length; i=i+3){third.push(all[i])}
+        
+                    if(counter == 3){
+        
+                        const final = all.map((value) => {
+                            if((all[10].name == value.name) && (all[10].suit == value.suit)){
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            }
+                        })
+                        console.log("FINAL : ",final)
+                        document.getElementById('answer').innerHTML = final.join(" ")
+                        console.log(all[10])
+        
+                        document.getElementById('game').style.opacity = 0
+                        setTimeout(() => {
+                            document.getElementById('game').style.display = "none"
+                            document.getElementById('mainPile').style.display = "none"
+                        }, 200);
+                        
+                        
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.display = 'flex'
+                        }, 200);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.opacity = 1
+                        }, 400);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.opacity = 0
+                        }, 2200);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.display = 'none'
+                        }, 2700);
+                        setTimeout(() => {
+                            document.getElementById('answer').style.opacity = 1
+                        }, 3000);
+                        setTimeout(() => {
+                            setTimeout(() => {
+                                document.getElementById('answer').style.display = "flex"
+                                document.getElementById('answer').style.animationPlayState = "running"
+                            }, 50);
+                            setTimeout(() => {
+                                document.getElementById('answer').classList.add('firework-animation')
+                            }, 50);
+                        }, 3200);
+                    }
+        
+                    if(counter == 3){
+                        setTimeout(() => {
+                            const dataFirst = first.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            })
+                            document.getElementById("firstBlock").innerHTML = dataFirst.join("");
+        
+                            const dataSecond = second.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            })
+                            document.getElementById("secondBlock").innerHTML = dataSecond.join("");
+        
+                            const dataThird = third.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            })
+                            document.getElementById("thirdBlock").innerHTML = dataThird.join("");
+                        }, 500);
+                    } else {
+                        const dataFirst = first.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("firstBlock").innerHTML = dataFirst.join("");
+        
+                        const dataSecond = second.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("secondBlock").innerHTML = dataSecond.join("");
+        
+                        const dataThird = third.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("thirdBlock").innerHTML = dataThird.join("");
+                    }
+                } else if (document.getElementById("col3").checked){
+                    counter += 1
+                    all=[]
+                    first.map((value) => {all.push(value)})
+                    third.map((value) => {all.push(value)})
+                    second.map((value) => {all.push(value)})
+            
+                    first=[]
+                    second=[]
+                    third=[]
+                    for(i=0; i<all.length; i=i+3){first.push(all[i])}
+                    for(i=1; i<all.length; i=i+3){second.push(all[i])}
+                    for(i=2; i<all.length; i=i+3){third.push(all[i])}
+        
+                    if(counter == 3){
+        
+                        const final = all.map((value) => {
+                            if((all[10].name == value.name) && (all[10].suit == value.suit)){
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            }
+                        })
+                        console.log("FINAL : ",final)
+                        document.getElementById('answer').innerHTML = final.join(" ")
+                        console.log(all[10])
+        
+                        document.getElementById('game').style.opacity = 0
+                        setTimeout(() => {
+                            document.getElementById('game').style.display = "none"
+                            document.getElementById('mainPile').style.display = "none"
+                        }, 200);
+                        
+                        
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.display = 'flex'
+                        }, 200);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.opacity = 1
+                        }, 400);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.opacity = 0
+                        }, 2200);
+                        setTimeout(() => {
+                            document.getElementById('hypeUp').style.display = 'none'
+                        }, 2700);
+                        setTimeout(() => {
+                            document.getElementById('answer').style.opacity = 1
+                        }, 3000);
+                        setTimeout(() => {
+                            setTimeout(() => {
+                                document.getElementById('answer').style.display = "flex"
+                                document.getElementById('answer').style.animationPlayState = "running"
+                            }, 50);
+                            setTimeout(() => {
+                                document.getElementById('answer').classList.add('firework-animation')
+                            }, 50);
+                        }, 3200);
+                    }
+                    if(counter == 3){
+                        setTimeout(() => {
+                            const dataFirst = first.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                            })
+                            document.getElementById("firstBlock").innerHTML = dataFirst.join("");
+        
+                            const dataSecond = second.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            })
+                            document.getElementById("secondBlock").innerHTML = dataSecond.join("");
+        
+                            const dataThird = third.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle">
+                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                } else {
+                                    return `
+                                    <div class="aCard">
+                                        <div class="upper">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="bottom">
+                                            <div class="name">${value.name}</div>
+                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        </div>
+                                    </div>
+                                    `
+                                }
+                            })
+                            document.getElementById("thirdBlock").innerHTML = dataThird.join("");
+                        }, 500);
+                    } else {
+                        const dataFirst = first.map((value) => {
+                                if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("firstBlock").innerHTML = dataFirst.join("");
+        
+                        const dataSecond = second.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("secondBlock").innerHTML = dataSecond.join("");
+        
+                        const dataThird = third.map((value) => {
+                            if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle">
+                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            } else {
+                                return `
+                                <div class="aCard">
+                                    <div class="upper">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="bottom">
+                                        <div class="name">${value.name}</div>
+                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                    </div>
+                                </div>
+                                `
+                            }
+                        })
+                        document.getElementById("thirdBlock").innerHTML = dataThird.join("");
+                    }
+                } else {
+                    alert("Select a Column!")
+                }
+            }
+        }, 1000);
+
+        if(counter!==3){
+            setTimeout(() => {
+                document.querySelector('.firstBlock').classList.remove('firstBlockMove')
+            }, 1200);
+            setTimeout(() => {
+                document.querySelector('.secondBlock').classList.remove('secondBlockMove')
+            }, 1400);
+            setTimeout(() => {
+                document.querySelector('.thirdBlock').classList.remove('thirdBlockMove')
+            }, 1600);
+            setTimeout(() => {
+                document.getElementById("submitSelection").style.pointerEvents = "auto"
+            }, 2500);
+        }
+    } else {
+        function openPop(ID) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.disabled = true;
+            });
+
+            document.getElementById(ID).style.opacity = "1";
+            document.getElementById(ID).style.zIndex = "99";
+            document.querySelector("body").style.overflow = "hidden";
+        } 
+        openPop('info_1')
+    }
+}
+
+function closePop(ID) {
+    document.getElementById(ID).style.opacity = "0";
+    document.getElementById(ID).style.zIndex = "-10";
+    document.querySelector("body").style.overflow = "auto";
+} 
