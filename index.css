@@ -62,6 +62,7 @@ body{
     transform: translateY(-1em);
     background-color: transparent;
     margin-bottom: 0;
+    display: flex;
 }
 
 .mainPile{
@@ -771,7 +772,7 @@ body{
     box-shadow: none;
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 390px) {
     .firstBlockMove .aCard:nth-child(1){
         transform: translateY(-7.5em) translateX(5em); 
         box-shadow: none;
@@ -1238,7 +1239,7 @@ label .col {
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 2%;
+    bottom: 3.5%;
     right: 0;
     margin-right: 1em;
     width: 3em;
