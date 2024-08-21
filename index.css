@@ -24,6 +24,10 @@ body{
     background-image: url("https://www.transparenttextures.com/patterns/leather.png");
 }
 
+
+
+/* MAIN-HEADING */
+
 .mainH{
     font-family: Brownhill;
     font-size: 5em;
@@ -40,6 +44,10 @@ body{
     font-family: Brownhill;
     font-size: 1.5em;
 }
+
+
+
+/* MAIN-FIRST-CARD */
 
 .main, .mainStepper{
     display: flex;
@@ -65,6 +73,10 @@ body{
     display: flex;
 }
 
+
+
+/* MAIN-PILE */
+
 .mainPile{
     position: relative;
     width: 4em;
@@ -87,6 +99,10 @@ body{
     background-size: 0.7em 0.7em;
     opacity: 1
 }
+
+
+
+/* MAIN-CARDS */
 
 .allCards{
     display: flex;
@@ -121,7 +137,7 @@ body{
 }
 
 
-/* CARDS-START */
+/* CARDS-ANIMATION-START */
 
 .aCard:nth-child(1){
     transform: translateX(15em) translateY(-6.5em);
@@ -233,7 +249,7 @@ body{
 
 
 
-/* CARD-START-650px */
+/* CARD-ANIMATION-START-650px */
 
 @media screen and (max-width: 650px) {
     .aCard:nth-child(1){
@@ -349,7 +365,7 @@ body{
 }
 
 
-/* CARD-START-410px */
+/* CARD-ANIMATION-START-410px */
 
 @media screen and (max-width: 410px) {
     .aCard:nth-child(1){
@@ -467,6 +483,7 @@ body{
 
 
 
+/* MAIN-CARD-SETS-ANIMATION */
 
 @keyframes spread {
     0%{
@@ -480,6 +497,10 @@ body{
         transform: translateX(0) translateY(0);
     }
 }
+
+
+
+/* SECOND-PAGE-CARDS-SETS */
 
 .upper, .upperJ{
     display: flex;
@@ -513,25 +534,6 @@ body{
     color: red;
 }
 
-.hypeUp{
-    opacity: 0;
-    display: none;
-    transition: all 0.4s ease-in-out;
-    font-weight: bold;
-    font-size: 1.15em;
-}
-.game{
-    display: none;
-    opacity: 0;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 2em;
-    transition: all .4s ease-in-out;
-}
-.game .mainPile{
-    margin-bottom: 4em;
-}
 .blocks{
     display: flex;
     align-items: center;
@@ -568,6 +570,30 @@ body{
     gap: 2em;
 }
 
+
+
+/* THIRD-PAGE-CARD-SET-AND-TEXT */
+
+.hypeUp{
+    opacity: 0;
+    display: none;
+    transition: all 0.4s ease-in-out;
+    font-weight: bold;
+    font-size: 1.15em;
+}
+.game{
+    display: none;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+    transition: all .4s ease-in-out;
+}
+.game .mainPile{
+    margin-bottom: 4em;
+}
+
 .answer{
     position: relative;
     display: none;
@@ -591,6 +617,10 @@ body{
     transform: translateX(0);
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
+
+
+
+/* START-AND-SUBMIT-SELECTION-BUTTONS */
 
 .start, .submitSelection{
     border: none;
@@ -670,15 +700,9 @@ body{
 
 }
 
-.scroll{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
-    height: 1.5em;
-    font-size: 1.5em;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 8px, black calc(100% - 8px), transparent 100%);
-}
+
+
+/* CARD-SETS-ANIMATION */
 
 .firstBlockMove, .secondBlockMove, .thirdBlockMove{
     transition: all 0.4s ease-in-out;
@@ -772,6 +796,10 @@ body{
     box-shadow: none;
 }
 
+
+
+/* CARD-SETS-ANIMATION-390px */
+
 @media screen and (max-width: 390px) {
     .firstBlockMove .aCard:nth-child(1){
         transform: translateY(-7.5em) translateX(5em); 
@@ -863,6 +891,8 @@ body{
 
 
 
+/* FIREWORKS-ANIMATION */
+
 .firework-animation:after {
     content: '';
     position: absolute;
@@ -914,6 +944,10 @@ body{
     }
   }
 
+
+
+/* MEDIA-QUERIES */
+
 @media screen and (max-width: 1320px){
     .main, .mainStepper{
         width: 95%;
@@ -921,6 +955,9 @@ body{
     }
     .mainStepper{
         padding: 0;
+    }
+    .buttonSet, .muteCheck{
+        border: 2px solid #007c76;
     }
 }
 @media screen and (max-width: 650px){
@@ -969,9 +1006,7 @@ body{
 
 
 
-
-
-  /* ------------------------------- INFO-POPUP ------------------------------- */
+/* ------------------------------- INFO-POPUP ------------------------------- */
 
   .info_popup{
     display: flex;
@@ -1046,6 +1081,9 @@ body{
   }
 
 
+
+/* ONLOAD-OVERLAY */
+
   .overlay{
     display: flex;
     align-items: center;
@@ -1059,7 +1097,7 @@ body{
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: all 0.4s ease-out;
+    transition: all 0.4s ease-in-out;
     z-index: -2;
 }
 .divider{
@@ -1140,6 +1178,10 @@ body{
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+
+
+/* BUTTON-SET */
+
 .buttonSet{
     position: absolute;
     top: 2%;
@@ -1170,6 +1212,9 @@ body{
 }
 
 
+
+/* SOUND-SWITCH */
+
 label {
     position: relative;
     display: flex;
@@ -1182,7 +1227,6 @@ label .col {
     width: 0;
     height: 0;
 }
-  /* The slider */
 .slider {
     display: flex;
     position: relative;
@@ -1239,7 +1283,7 @@ label .col {
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 3.5%;
+    bottom: 1.5%;
     right: 0;
     margin-right: 1em;
     width: 3em;

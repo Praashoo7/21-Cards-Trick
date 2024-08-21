@@ -1,3 +1,5 @@
+/* ----------------------------- THE-ONLOAD ----------------------------- */
+
 window.addEventListener('load', function() {
     var elements = document.querySelectorAll('.aCard');
     elements.forEach(function(element) {
@@ -56,13 +58,17 @@ function closeHelp(){
             });
 
             audio.play();
-        }, 1500);
+        }, 1700);
     }
 
     setTimeout(() => {
         document.getElementById('start').style.pointerEvents = 'auto';
     }, 3100);
 }
+
+
+
+/* -------------------------- TRANSITION-FROM-1-2 -------------------------- */
 
 function start(){
     document.getElementById("allCards").style.opacity = 0;
@@ -77,6 +83,9 @@ function start(){
     }, 500);
 }
 
+
+
+/* ------------------------------- MAIN-DATA ------------------------------- */
 
 // let first = [1, 4, 7, 10, 13, 16, 19]
 // let second = [2, 5, 8, 11, 14, 17, 20]
@@ -145,6 +154,10 @@ const main = mainData.map((value) => {
     }
 })
 document.getElementById('cards').innerHTML = main.join(" ");
+
+
+
+/* ------------------------------ SECOND-PAGE ------------------------------ */
 
 let first = [
     {"id": 1, "name": "A", "suit": "&spades;", "color": "black", "source": ""},
@@ -279,35 +292,39 @@ const dataThird = third.map((value) => {
 })
 document.getElementById("thirdBlock").innerHTML = dataThird.join("");
 
+
+
+/* --------------------- SUBMIT-SELECTION-AND-FINAL ------------------------ */
+
 let all = []
 counter = 0
 function submitSelection(){
 
-    var audio = document.getElementById('middleAudio');
-    var loopCount = 0;
+    if(document.getElementById('col1').checked || document.getElementById('col2').checked || document.getElementById('col3').checked){
 
-    audio.addEventListener('ended', function() {
-    loopCount++;
-    if(counter == 2){
-        audio.currentTime = 0; // Reset the audio to the beginning
-    } else {
-        if (loopCount < 2) {
-            if(loopCount == 1){
-                setTimeout(() => {
+        var audio = document.getElementById('middleAudio');
+        var loopCount = 0;
+
+        audio.addEventListener('ended', function() {
+        loopCount++;
+        if(counter == 2){
+            audio.currentTime = 0; // Reset the audio to the beginning
+        } else {
+            if (loopCount < 2) {
+                if(loopCount == 1){
+                    setTimeout(() => {
+                        audio.currentTime = 0; // Reset the audio to the beginning
+                        audio.play(); // Play the audio again
+                    }, 450);
+                } else {
                     audio.currentTime = 0; // Reset the audio to the beginning
                     audio.play(); // Play the audio again
-                }, 450);
-            } else {
-                audio.currentTime = 0; // Reset the audio to the beginning
-                audio.play(); // Play the audio again
+                }
             }
         }
-    }
-    });
+        });
+        audio.play();
 
-    audio.play();
-
-    if(document.getElementById('col1').checked || document.getElementById('col2').checked || document.getElementById('col3').checked){
         document.getElementById("submitSelection").style.pointerEvents = "none"
         setTimeout(() => {
             document.querySelector('.firstBlock').classList.add('firstBlockMove')
@@ -1265,6 +1282,9 @@ function closePop(ID) {
     document.querySelector("body").style.overflow = "auto";
 }
 
+
+
+/* ----------------------------- SOUND-SWITCH ----------------------------- */
 
 const toggleSwitch = document.querySelector('.muteCheck input[type="checkbox"]');
 
