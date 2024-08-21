@@ -33,6 +33,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
 }
 .mainH span{
     font-family: Brownhill;
@@ -51,6 +53,8 @@ body{
     border-radius: 50px;
     gap: 2em;
     transition: all 0.4s ease-in-out;
+    opacity: 0;
+    display: none;
 }
 .mainStepper{
     padding: 0;
@@ -605,11 +609,12 @@ body{
     margin-top: 2em;
     position: relative;
     transition: all 0.2s ease-in-out;
+    pointer-events: none;
 }
 .submitSelection{
     margin-top: 0;
     padding: 1em 1.25em 1em 1.25em;
-
+    pointer-events: auto;
 }
 .submitSelectionSVG{
     width: 16px;
@@ -1053,7 +1058,7 @@ body{
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.4s ease-in-out;
+    transition: all 0.4s ease-out;
     z-index: -2;
 }
 .divider{
@@ -1137,7 +1142,8 @@ body{
 .buttonSet{
     position: absolute;
     top: 2%;
-    right: 1%;
+    right: 0;
+    margin-right: 1em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1145,6 +1151,7 @@ body{
     padding: 0.5em;
     background-color: #00857d;
     border-radius: 50px;
+    /* border: 2px solid #007c76; */
 }
 .help, .gitStar{
     border: none;
@@ -1225,3 +1232,51 @@ label .col {
         z-index: -2;
     }
 } */
+
+.muteCheck {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 2%;
+    right: 0;
+    margin-right: 1em;
+    width: 3em;
+    height: 3em;
+    transition: all .4s ease-in-out;
+    background-color: #00857d;
+    border-radius: 50%;
+    cursor: pointer;
+    /* border: 2px solid #007c76; */
+    z-index: 98;
+  }
+  
+  .muteCheck .checkboxMain {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    width: 0.2em;
+    border-radius: 20px;
+    transform: rotate(45deg);
+    background: #231f20;
+    min-height: 0em;
+    transition: all .2s ease-in-out;
+  }
+
+  .muteCheck input[type=checkbox] {
+    display: none;
+  }
+
+  .muteCheck svg{
+    width: 22px;
+    height: 22px;
+  }

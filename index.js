@@ -1,16 +1,67 @@
-/* ----------------------------- INFO-POPUP ----------------------------- */
+window.addEventListener('load', function() {
+    var elements = document.querySelectorAll('.aCard');
+    elements.forEach(function(element) {
+      var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
+      if (animation) {
+        element.style.animationPlayState = 'paused';
+      }
+    });
+    openHelp()
+  });
 
-// window.addEventListener('load', () => {
-//     openHelp()
-// })
+
+
+/* ----------------------------- INFO-POPUP ----------------------------- */
 
 function openHelp(){
     document.getElementById('infoMain').style.opacity = 1
     document.getElementById('infoMain').style.zIndex = 9999
 }
+
+let closeCount = 0
 function closeHelp(){
+    closeCount += 1
     document.getElementById('infoMain').style.opacity = 0
     document.getElementById('infoMain').style.zIndex = -2
+    
+    if(closeCount == 1){
+
+        setTimeout(() => {
+            document.getElementById('main').style.display = 'flex'
+        }, 100);
+        setTimeout(() => {
+            document.getElementById('mainH').style.opacity = 1
+        }, 400);
+        setTimeout(() => {
+            document.getElementById('main').style.opacity = 1
+        }, 800);
+        setTimeout(() => {
+            var elements = document.querySelectorAll('.aCard');
+            elements.forEach(function(element) {
+            var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
+            if (animation) {
+                element.style.animationPlayState = 'running';
+            }
+            });
+
+            var audio = document.getElementById('firstAudio');
+            var loopCount = 0;
+
+            audio.addEventListener('ended', function() {
+            loopCount++;
+            if (loopCount < 2) {
+                audio.currentTime = 0.83; // Reset the audio to the beginning
+                audio.play(); // Play the audio again
+            }
+            });
+
+            audio.play();
+        }, 1500);
+    }
+
+    setTimeout(() => {
+        document.getElementById('start').style.pointerEvents = 'auto';
+    }, 3100);
 }
 
 function start(){
@@ -25,6 +76,7 @@ function start(){
         document.getElementById("game").style.opacity = 1;
     }, 500);
 }
+
 
 // let first = [1, 4, 7, 10, 13, 16, 19]
 // let second = [2, 5, 8, 11, 14, 17, 20]
@@ -55,27 +107,44 @@ let mainData = [
 ]
 
 const main = mainData.map((value) => {
-    return console.log('&${value.suit};')
-    // if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-    //     return `
-        
-    //     `
-    // } else {
-    //     return `
-    //     <div class="aCard">
-    //         <div class="upper">
-    //             <div class="name">${value.name}</div>
-    //             <div class="symbol">'&${value.suit};'</div>
-    //         </div>
-    //         <div class="middle">'&${value.suit};'</div>
-    //         <div class="bottom">
-    //             <div class="name">${value.name}</div>
-    //             <div class="symbol">'&${value.suit};'</div>
-    //         </div>
-    //     </div>
-    //     `
-    // }
+
+    let suitSymbol = `${value.suit}`;
+    suitSymbol = suitSymbol.slice(1, -1);
+
+    if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
+        return `
+        <div class="aCard" id="aCard">
+        <audio id="firstAudio" src="sounds/Big.mp3"></audio>
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+            </div>
+            <div class="middle" id="${suitSymbol}">
+                <img style="width:25px; height: 25px;" src="${value.source}">
+            </div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+            </div>
+       </div>
+        `
+    } else {
+        return `
+        <div class="aCard" id="aCard">
+            <div class="upper">
+                <div class="name">${value.name}</div>
+                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+            </div>
+            <div class="middle" id="${suitSymbol}">${value.suit}</div>
+            <div class="bottom">
+                <div class="name">${value.name}</div>
+                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+            </div>
+        </div>
+        `
+    }
 })
+document.getElementById('cards').innerHTML = main.join(" ");
 
 let first = [
     {"id": 1, "name": "A", "suit": "&spades;", "color": "black", "source": ""},
@@ -214,6 +283,30 @@ let all = []
 counter = 0
 function submitSelection(){
 
+    var audio = document.getElementById('middleAudio');
+    var loopCount = 0;
+
+    audio.addEventListener('ended', function() {
+    loopCount++;
+    if(counter == 2){
+        audio.currentTime = 0; // Reset the audio to the beginning
+    } else {
+        if (loopCount < 2) {
+            if(loopCount == 1){
+                setTimeout(() => {
+                    audio.currentTime = 0; // Reset the audio to the beginning
+                    audio.play(); // Play the audio again
+                }, 450);
+            } else {
+                audio.currentTime = 0; // Reset the audio to the beginning
+                audio.play(); // Play the audio again
+            }
+        }
+    }
+    });
+
+    audio.play();
+
     if(document.getElementById('col1').checked || document.getElementById('col2').checked || document.getElementById('col3').checked){
         document.getElementById("submitSelection").style.pointerEvents = "none"
         setTimeout(() => {
@@ -279,9 +372,9 @@ function submitSelection(){
                                 }
                             }
                         })
-                        console.log("FINAL : ",final)
                         document.getElementById('answer').innerHTML = final.join(" ")
-                        console.log(all[10])
+
+                        document.getElementById("lastAudio").play();
         
                         document.getElementById('game').style.opacity = 0
                         setTimeout(() => {
@@ -581,9 +674,9 @@ function submitSelection(){
                                 }
                             }
                         })
-                        console.log("FINAL : ",final)
                         document.getElementById('answer').innerHTML = final.join(" ")
-                        console.log(all[10])
+
+                        document.getElementById("lastAudio").play();
         
                         document.getElementById('game').style.opacity = 0
                         setTimeout(() => {
@@ -882,9 +975,9 @@ function submitSelection(){
                                 }
                             }
                         })
-                        console.log("FINAL : ",final)
                         document.getElementById('answer').innerHTML = final.join(" ")
-                        console.log(all[10])
+
+                        document.getElementById("lastAudio").play();
         
                         document.getElementById('game').style.opacity = 0
                         setTimeout(() => {
@@ -1170,4 +1263,26 @@ function closePop(ID) {
     document.getElementById(ID).style.opacity = "0";
     document.getElementById(ID).style.zIndex = "-10";
     document.querySelector("body").style.overflow = "auto";
-} 
+}
+
+
+const toggleSwitch = document.querySelector('.muteCheck input[type="checkbox"]');
+
+function switchTheme() {
+    toggleMute()
+    if (toggleSwitch.checked) {
+        document.querySelector('.line').style.minHeight = '1.5em'
+    } else {
+        document.querySelector('.line').style.minHeight = '0em'
+    }
+}
+function toggleMute(){
+    var myAudio1 = document.getElementById('firstAudio');
+    myAudio1.muted = !myAudio1.muted;
+    var myAudio2 = document.getElementById('middleAudio');
+    myAudio2.muted = !myAudio2.muted;
+    var myAudio3 = document.getElementById('lastAudio');
+    myAudio3.muted = !myAudio3.muted;
+}
+
+toggleSwitch.addEventListener('change', switchTheme);
