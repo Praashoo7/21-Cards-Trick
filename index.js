@@ -123,7 +123,6 @@ const main = mainData.map((value) => {
     if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
         return `
         <div class="aCard" id="aCard">
-        <audio id="firstAudio" src="sounds/Big.mp3"></audio>
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
                 <div class="symbol" id="${suitSymbol}">${value.suit}</div>

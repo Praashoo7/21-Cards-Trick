@@ -571,6 +571,39 @@ body{
 }
 
 
+/* @media (hover: none) and (pointer: coarse) {
+    Styles for touch devices
+} */
+@media screen and (max-width:768px) {
+    .mainH span{
+        font-size: 1em;
+    }
+}
+@media screen and (max-width: 425px) {
+    .upper{
+        transform: translateY(-1em);
+    }
+    .symbol{
+        font-size: 0.25em;
+        transform: translateY(0.75em);
+    }
+    .bottom{
+        transform: translateY(1em) translateX(-0.1em) rotate(180deg);
+    }
+    .main .allCards .upper #JOKER, .main .allCards .bottom #JOKER{
+        transform: rotate(90deg) translateY(1.15em) translateX(0.85em);
+    }
+    .firstBlock .upper #JOKER, .secondBlock .upper #JOKER, .firstBlock .bottom #JOKER, .secondBlock .bottom #JOKER, .thirdBlock .upper #JOKER, .thirdBlock .bottom #JOKER, .answer .upper #JOKER, .answer .bottom #JOKER{
+        transform: rotate(90deg) translateY(1.15em) translateX(0.9em);
+    }
+    .upperJ{
+        transform: translateY(-0.25em);
+    }
+    .bottomJ{
+        transform: translateY(1.25em) translateX(0em) rotate(180deg);
+    }
+}
+
 
 /* RADIO-BUTTONS */
 
@@ -756,6 +789,7 @@ label .col {
     position: absolute;
     top: 0;
     bottom: 0;
+    color: white;
     right: 10%;
     margin-top: auto;
     margin-bottom: auto;
@@ -1235,7 +1269,7 @@ label .col {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-@media screen and (max-width: 430px){
+@media screen and (max-height: 550px){
     .info{
         height: 95dvh;
         align-items: start;
