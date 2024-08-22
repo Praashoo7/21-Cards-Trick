@@ -23,4 +23,4 @@
 
 ## License
 
-21-Cards-Trick is open-source Software Licensed under the [MIT License](https://github.com/Praashoo7/21-Cards/blob/main/LICENSE)
+21-Cards-Trick is open-source Software Licensed under the [MIT License](https://github.com/Praashoo7/21-Cards-Trick/blob/main/LICENSE)
