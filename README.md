@@ -15,7 +15,7 @@
   - Fredoka font from [Google Fonts.](https://fonts.google.com/specimen/Fredoka?preview.text=At%20the%20first%20page%20choose%20a%20card%20in%20your%20mind.&query=Fredoka&stroke=Sans+Serif)
   - Images and Icons from [SVGRepo.](https://www.svgrepo.com/)
   - Sound Effects
-      - [Big.mp3] from Microsoft Solitaire Collection.
+      - [Big.mp3] is an original sound effect from Microsoft Solitaire Collection.
       - [MIX.mp3] from [pixabay.](https://pixabay.com/sound-effects/)
       - [LAST.mp3] from [pixabay.](https://pixabay.com/sound-effects/)
 
