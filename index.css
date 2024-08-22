@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Forum&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Forum&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono&display=swap'); */
 
 @font-face {
     font-family: Brownhill;
@@ -10,6 +11,8 @@
     box-sizing: border-box;
 }
 
+/* Poppins, Figtree, Plus Jakarta Sans, Sen, Fredoka */
+
 body{
     width: 100%;
     height: 100dvh;
@@ -18,10 +21,11 @@ body{
     justify-content: start;
     gap: 1em;
     flex-direction: column;
-    font-family: Space Mono;
+    font-family: Fredoka;
+    font-weight: bold;
     line-height: 0.75;
     background-color: #00857d;
-    background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+    background-image: url("imgs/leather.png");
 }
 
 
@@ -32,6 +36,8 @@ body{
     font-family: Brownhill;
     font-size: 5em;
     text-align: center;
+    color: #081a29;
+    /* Colors - #081a29, #f5a1a7 */
     margin-top: 0.75em;
     margin-bottom: 0.5em;
     display: flex;
@@ -63,6 +69,7 @@ body{
     transition: all 0.4s ease-in-out;
     opacity: 0;
     display: none;
+    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
 }
 .mainStepper{
     padding: 0;
@@ -71,6 +78,7 @@ body{
     background-color: transparent;
     margin-bottom: 0;
     display: flex;
+    /* box-shadow: none; */
 }
 
 
@@ -562,13 +570,89 @@ body{
     transform: translateY(0.5em) rotate(180deg);
 }
 
+
+
+/* RADIO-BUTTONS */
+
 .radioButtons{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2em;
+    border-radius: 10px;
 }
+
+.pressRadioMan{
+    animation: pressRadioMan 0.5s ease-in-out;
+}
+@keyframes pressRadioMan {
+    0%{
+        transform: translateX(-0.2em);
+    }
+    20%{
+        transform: translateX(0.2em);
+    }
+    40%{
+        transform: translateX(-0.2em);
+    }
+    60%{
+        transform: translateX(0.2em);
+    }
+    80%{
+        transform: translateX(0em);
+    }
+    100%{
+        transform: translateX(0em);
+    }
+}
+
+label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+  }
+label .col {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    display: flex;
+    position: relative;
+    cursor: pointer;
+    width: 1.15em;
+    height: 1.15em;
+    background-color: #dbdbdb;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 0.75em;
+    width: 0.75em;
+    border-radius: 2.5px;
+    left: 0.2em;
+    bottom: 0.2em;
+    background-color: white;
+    transition: .4s;
+    scale: 0;
+  }
+  .col:checked + .slider {
+    background-color: #00857d;
+    transform: scale(0.7);
+    border-radius: 50%;
+  }
+  
+  .col:checked + .slider:before {
+    transform: rotateZ(360deg);
+    scale: 1;
+    border-radius: 50%;
+  }
 
 
 
@@ -627,9 +711,9 @@ body{
     outline: none;
     padding: 1em 2.75em 1em 1.25em;
     border-radius: 10px;
-    font-family: Space Mono;
+    font-family: Fredoka;
     background-color: crimson;
-    font-size: 0.85em;
+    font-size: 0.9em;
     color: white;
     font-weight: bold;
     cursor: pointer;
@@ -644,13 +728,14 @@ body{
 }
 .submitSelection{
     margin-top: 0;
-    padding: 1em 1.25em 1em 1.25em;
+    padding: 0.85em 1.25em 1em 1.25em;
     pointer-events: auto;
 }
 .submitSelectionSVG{
     width: 16px;
     height: 16px;
     margin-left: -2em;
+    transform: translateY(0.1em);
     opacity: 0;
     transition: all 0.3s ease-in-out;
 }
@@ -659,7 +744,7 @@ body{
     opacity: 1;
 }
 .submitSelection:active .submitSelectionSVG{
-    transform: translateX(0.35em);
+    transform: translateY(0.1em) translateX(0.35em);
 }
 
 /* .start:hover{
@@ -672,7 +757,6 @@ body{
     top: 0;
     bottom: 0;
     right: 10%;
-    transform: translateY(-0.1em);
     margin-top: auto;
     margin-bottom: auto;
     display: flex;
@@ -1016,7 +1100,7 @@ body{
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0, 0.9);
-    font-family: Space Mono;
+    font-family: Fredoka;
     line-height: normal;
     font-size: 1em;
     position: fixed;
@@ -1072,7 +1156,7 @@ body{
     border-radius: 8px;
     outline: none;
     color: white;
-    font-family: Space Mono;
+    font-family: Fredoka;
     transition: .4s ease-in-out;
   }
   .cancel_only:hover{
@@ -1134,6 +1218,7 @@ body{
     font-size: 0.85em;
     max-height: 545px;
     overflow: scroll;
+    font-weight: normal;
 }
 
 ::-webkit-scrollbar {
@@ -1163,7 +1248,7 @@ body{
 .close{
     font-size: 0.9em;
     background-color: black;
-    font-family: Space Mono;
+    font-family: Fredoka;
     padding: 0.45em 1em 0.45em 1em;
     border-radius: 8px;
     color: white;
@@ -1201,6 +1286,7 @@ body{
     outline: none;
     background-color: transparent;
     transition: all 0.2s ease-in-out;
+    z-index: 5;
 }
 .help:hover, .gitStar:hover{
     opacity: 0.7;
@@ -1210,57 +1296,48 @@ body{
     width: 22px;
     height: 22px;
 }
-
-
-
-/* SOUND-SWITCH */
-
-label {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.25em;
-  }
-label .col {
-    opacity: 0;
-    width: 0;
-    height: 0;
+.help svg path, .gitStar svg path{
+    stroke: #081a29;
 }
-.slider {
-    display: flex;
-    position: relative;
-    cursor: pointer;
-    width: 1.15em;
-    height: 1.15em;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 50%;
-  }
-  
-  .slider:before {
+
+.starOnGit, .wantHelp, .soundTip{
     position: absolute;
-    content: "";
-    height: 0.75em;
-    width: 0.75em;
-    border-radius: 2.5px;
-    left: 0.2em;
-    bottom: 0.2em;
-    background-color: white;
-    transition: .4s;
-    scale: 0;
-  }
-  .col:checked + .slider {
+    /* top: 0;
+    right: 3%; */
+    margin-top: 4em;
+    margin-right: 1em;
+    padding: 1em;
+    font-size: 0.9em;
+    color: black;
     background-color: #00857d;
-    transform: scale(0.7);
-    border-radius: 50%;
-  }
-  
-  .col:checked + .slider:before {
-    transform: rotateZ(360deg);
-    scale: 1;
-    border-radius: 50%;
-  }
+    font-weight: bold;
+    border-radius: 10px;
+    width: max-content;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    z-index: 2;
+}
+.soundTip{
+    bottom: 0;
+    margin-right: 1.5em;
+    margin-bottom: 2em;
+}
+/* .wantHelp{
+    margin-right: 3.5em;
+} */
+.gitStar:hover + .starOnGit, .help:hover + .wantHelp{
+    margin-top: 7em;
+    margin-right: 1em;
+    opacity: 1;
+}
+.muteCheck:hover .soundTip{
+    margin-bottom: 4em;
+    opacity: 1;
+}
+/* .help:hover + .wantHelp{
+    margin-right: 3.5em;
+} */
+
 
 
 /* .closeHelp{
@@ -1277,6 +1354,10 @@ label .col {
         z-index: -2;
     }
 } */
+
+
+
+/* SOUND-SWITCH */
 
 .muteCheck {
     display: flex;
@@ -1312,7 +1393,7 @@ label .col {
     width: 0.2em;
     border-radius: 20px;
     transform: rotate(45deg);
-    background: #231f20;
+    background: #081a29;
     min-height: 0em;
     transition: all .2s ease-in-out;
   }
@@ -1324,4 +1405,60 @@ label .col {
   .muteCheck svg{
     width: 22px;
     height: 22px;
+    fill: #081a29;
+  }
+
+
+  #JOKER{
+    transform: rotate(90deg) translateY(1em) translateX(0.35em);
+  }
+
+
+
+/* SMALL-DEVICE */
+
+.small_device{
+    width: 100%;
+    height: 100dvh;
+    display: none;
+    padding: 5px;
+  }
+  .small_device_card{
+    width: 100%;
+    padding: 5px;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(1px);
+    border-radius: 10px;
+    border: 2px solid #007c76;
+  }
+  .small_device_text{
+    font-weight: bold;
+    line-height: normal;
+    font-size: clamp(0.1rem, 0.3043rem + 3.4783vw, 3rem);
+    color: black;
+  }
+  
+  @media only screen and (max-width: 279px) {
+    .buttonSet, .overlay, .mainH, .main, .mainStepper, .info_popup, .muteCheck{
+        display: none;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+      background-color: #00857d;
+      background-image: url("imgs/leather.png");
+    }
+    .small_device{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        color: black;
+    }
+  }
+  @media only screen and (max-width: 80px) {
+    .small_device_card{
+        border-radius: 5px;
+    }
   }
