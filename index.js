@@ -1,18 +1,3 @@
-/* ----------------------------- THE-ONLOAD ----------------------------- */
-
-window.addEventListener('load', function() {
-    var elements = document.querySelectorAll('.aCard');
-    elements.forEach(function(element) {
-      var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
-      if (animation) {
-        element.style.animationPlayState = 'paused';
-      }
-    });
-    openHelp()
-  });
-
-
-
 /* ----------------------------- INFO-POPUP ----------------------------- */
 
 function openHelp(){
@@ -67,6 +52,21 @@ function closeHelp(){
         document.getElementById('start').style.pointerEvents = 'auto';
     }, 3100);
 }
+
+
+
+/* ----------------------------- THE-ONLOAD ----------------------------- */
+
+window.addEventListener('load', function() {
+    var elements = document.querySelectorAll('.aCard');
+    elements.forEach(function(element) {
+      var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
+      if (animation) {
+        element.style.animationPlayState = 'paused';
+      }
+    });
+    openHelp()
+  });
 
 
 
