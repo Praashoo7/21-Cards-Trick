@@ -1280,14 +1280,33 @@ function closePop(ID) {
 
 const toggleSwitch = document.querySelector('.muteCheck input[type="checkbox"]');
 
-function switchTheme() {
+function switchSound(e) {
     toggleMute()
-    if (toggleSwitch.checked) {
+    if (e.target.checked) {
         document.querySelector('.line').style.minHeight = '1.5em'
+        document.documentElement.setAttribute('sound-check', 'muted');
     } else {
         document.querySelector('.line').style.minHeight = '0em'
+        document.documentElement.setAttribute('sound-check', 'unmuted');
     }
 }
+
+toggleSwitch.addEventListener('change', switchSound, false);
+
+function switchSound(e) {
+    toggleMute()
+    if (e.target.checked) {
+        document.querySelector('.line').style.minHeight = '1.5em'
+        document.documentElement.setAttribute('sound-check', 'muted');
+        localStorage.setItem('sound', 'muted');
+    }
+    else {
+        document.querySelector('.line').style.minHeight = '0em'
+        document.documentElement.setAttribute('sound-check', 'unmuted');
+        localStorage.setItem('sound', 'unmuted');
+    }    
+  }
+
 function toggleMute(){
     var myAudio1 = document.getElementById('firstAudio');
     myAudio1.muted = !myAudio1.muted;
@@ -1297,7 +1316,28 @@ function toggleMute(){
     myAudio3.muted = !myAudio3.muted;
 }
 
-toggleSwitch.addEventListener('change', switchTheme);
+const currentSoundCheck = localStorage.getItem('sound');
+
+if (currentSoundCheck === null) {
+    // If no value in localStorage, set to muted (checked) by default
+    toggleSwitch.checked = true;
+    document.documentElement.setAttribute('sound-check', 'muted');
+    document.querySelector('.line').style.minHeight = '1.5em';
+    localStorage.setItem('sound', 'muted');
+    toggleMute();
+} else {
+    // If there's a value in localStorage, use it
+    toggleSwitch.checked = (currentSoundCheck === 'muted');
+    document.documentElement.setAttribute('sound-check', currentSoundCheck);
+    if (currentSoundCheck === 'muted') {
+        document.querySelector('.line').style.minHeight = '1.5em';
+        toggleMute();
+    } else {
+        document.querySelector('.line').style.minHeight = '0em';
+    }
+}
+
+toggleSwitch.addEventListener('change', switchSound);
 
 
 
