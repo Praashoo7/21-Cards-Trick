@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: Brownhill;
-    src: url(fonts/BrotherSignature-7BWnK.otf);
+    src: url(fonts/BrotherSignature.otf);
 }
 
 *{
@@ -1219,6 +1219,9 @@ label .col {
     max-height: 545px;
     overflow: scroll;
     font-weight: normal;
+}
+.info span li{
+    margin: 0.5em 0;
 }
 
 ::-webkit-scrollbar {
