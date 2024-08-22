@@ -53,8 +53,8 @@ function closeHelp(){
                 audio.addEventListener('ended', function() {
                 loopCount++;
                 if (loopCount < 2) {
-                    audio.currentTime = 0.83; // Reset the audio to the beginning
-                    audio.play(); // Play the audio again
+                    audio.currentTime = 0.83;
+                    audio.play();
                 }
                 });
 
@@ -309,17 +309,17 @@ function submitSelection(){
         audio.addEventListener('ended', function() {
         loopCount++;
         if(counter == 2){
-            audio.currentTime = 0; // Reset the audio to the beginning
+            audio.currentTime = 0;
         } else {
             if (loopCount < 2) {
                 if(loopCount == 1){
                     setTimeout(() => {
-                        audio.currentTime = 0; // Reset the audio to the beginning
-                        audio.play(); // Play the audio again
+                        audio.currentTime = 0;
+                        audio.play();
                     }, 450);
                 } else {
-                    audio.currentTime = 0; // Reset the audio to the beginning
-                    audio.play(); // Play the audio again
+                    audio.currentTime = 0;
+                    audio.play();
                 }
             }
         }
@@ -1321,14 +1321,12 @@ function toggleMute(){
 const currentSoundCheck = localStorage.getItem('sound');
 
 if (currentSoundCheck === null) {
-    // If no value in localStorage, set to muted (checked) by default
     toggleSwitch.checked = true;
     document.documentElement.setAttribute('sound-check', 'muted');
     document.querySelector('.line').style.minHeight = '1.5em';
     localStorage.setItem('sound', 'muted');
     toggleMute();
 } else {
-    // If there's a value in localStorage, use it
     toggleSwitch.checked = (currentSoundCheck === 'muted');
     document.documentElement.setAttribute('sound-check', currentSoundCheck);
     if (currentSoundCheck === 'muted') {
