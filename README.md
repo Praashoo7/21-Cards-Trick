@@ -5,7 +5,7 @@
 ## How to Start?
 
   - At the first page choose a card in your mind. After choosing the card press "Guess my Card" button!
-  - After this, on the Next page you will be asked "3" times to select the row in which your card is Present!
+  - After this, on the Next page you will be asked "3" times to select the column in which your card is Present!
   - After the third selection the card in your mind will be revealed!
 
 
