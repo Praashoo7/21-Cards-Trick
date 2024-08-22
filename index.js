@@ -46,19 +46,21 @@ function closeHelp(){
             }
             });
 
-            var audio = document.getElementById('firstAudio');
-            var loopCount = 0;
+            setTimeout(() => {
+                var audio = document.getElementById('firstAudio');
+                var loopCount = 0;
 
-            audio.addEventListener('ended', function() {
-            loopCount++;
-            if (loopCount < 2) {
-                audio.currentTime = 0.83; // Reset the audio to the beginning
-                audio.play(); // Play the audio again
-            }
-            });
+                audio.addEventListener('ended', function() {
+                loopCount++;
+                if (loopCount < 2) {
+                    audio.currentTime = 0.83; // Reset the audio to the beginning
+                    audio.play(); // Play the audio again
+                }
+                });
 
-            audio.play();
-        }, 900);
+                audio.play();
+            }, 150);
+        }, 1200);
     }
 
     setTimeout(() => {
