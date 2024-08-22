@@ -125,14 +125,14 @@ const main = mainData.map((value) => {
         <div class="aCard" id="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
             </div>
-            <div class="middle" id="${suitSymbol}">
+            <div class="middle" id="${suitSymbol}" style="color: ${value.color}">
                 <img style="width:25px; height: 25px;" src="${value.source}">
             </div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
             </div>
        </div>
         `
@@ -141,12 +141,12 @@ const main = mainData.map((value) => {
         <div class="aCard" id="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
             </div>
-            <div class="middle" id="${suitSymbol}">${value.suit}</div>
+            <div class="middle" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}">${value.suit}</div>
+                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
             </div>
         </div>
         `
