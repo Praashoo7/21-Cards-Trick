@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="icons/mainIcon.svg">
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4THQ7KT4C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L4THQ7KT4C');
+</script>
+
 <body>
 
     <audio id="firstAudio" src="sounds/Big.mp3" preload="auto"></audio>
@@ -30,7 +41,7 @@
             <div class="divider"></div>
             <span>
                 <li>On the first page, Choose any one of the cards and keep it in your mind. Once you've made your choice, click the "Guess my Card" button!</li>
-                <li>On the Next page you will be asked "3" times to select the column in which your card is Present!</li>
+                <li>On the Next page you will be asked "3" times to select the column in which your card is present!</li>
                 <li>After the third selection, the card you had in your mind will be revealed!</li>
             </span>
             <button onclick="closeHelp()" class="close" id="close">Close</button>
