@@ -46,20 +46,19 @@ function closeHelp(){
             }
             });
 
-            setTimeout(() => {
-                var audio = document.getElementById('firstAudio');
-                var loopCount = 0;
+            var audio = document.getElementById('firstAudio');
+            var loopCount = 0;
 
-                audio.addEventListener('ended', function() {
-                loopCount++;
-                if (loopCount < 2) {
-                    audio.currentTime = 0.83;
-                    audio.play();
-                }
-                });
-
+            audio.addEventListener('ended', function() {
+            loopCount++;
+            if (loopCount < 2) {
+                audio.currentTime = 0.83;
                 audio.play();
-            }, 150);
+            }
+            });
+
+            audio.play();
+            
         }, 1200);
     }
 
@@ -94,27 +93,27 @@ function start(){
 // let third = [3, 6, 9, 12, 15, 18, 21]
 
 let mainData = [
-    {"name": "A", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"name": "3", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"name": "2", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"name": "A", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"name": "3", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"name": "2", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"name": "4", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"name": "2", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"name": "4", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"name": "A", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"name": "3", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"name": "K", "suit": "imgs/hearts.png", "color": "red", "source": "imgs/king.png"},
-    {"name": "4", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"name": "A", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"name": "2", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"name": "Q", "suit": "imgs/clubs.png", "color": "black", "source": "imgs/queen.png"},
-    {"name": "10", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"name": "4", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"name": "J", "suit": "imgs/diamondsuit.png", "color": "red", "source": "imgs/jack.png"},
-    {"name": "3", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"name": "JOKER", "suit": "imgs/jokersuit.png", "color": "", "source": "imgs/joker.png"}
+    {"name": "A", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"name": "3", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"name": "2", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"name": "A", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"name": "3", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"name": "2", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"name": "4", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"name": "2", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"name": "4", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"name": "A", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"name": "3", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"name": "K", "suit": "imgs/hearts.webp", "color": "red", "source": "imgs/king.webp"},
+    {"name": "4", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"name": "A", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"name": "2", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"name": "Q", "suit": "imgs/clubs.webp", "color": "black", "source": "imgs/queen.webp"},
+    {"name": "10", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"name": "4", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"name": "J", "suit": "imgs/diamondsuit.webp", "color": "red", "source": "imgs/jack.webp"},
+    {"name": "3", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"name": "JOKER", "suit": "imgs/jokersuit.webp", "color": "", "source": "imgs/joker.webp"}
 ]
 
 const main = mainData.map((value) => {
@@ -161,31 +160,31 @@ document.getElementById('cards').innerHTML = main.join(" ");
 /* ------------------------------ SECOND-PAGE ------------------------------ */
 
 let first = [
-    {"id": 1, "name": "A", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"id": 4, "name": "4", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"id": 7, "name": "3", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"id": 10, "name": "2", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"id": 13, "name": "A", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"id": 16, "name": "4", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"id": 19, "name": "Q", "suit": "imgs/clubs.png", "color": "black", "source": "imgs/queen.png"}
+    {"id": 1, "name": "A", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"id": 4, "name": "4", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"id": 7, "name": "3", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"id": 10, "name": "2", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"id": 13, "name": "A", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"id": 16, "name": "4", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"id": 19, "name": "Q", "suit": "imgs/clubs.webp", "color": "black", "source": "imgs/queen.webp"}
 ]
 let second = [
-    {"id": 2, "name": "2", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"id": 5, "name": "A", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"id": 8, "name": "4", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"id": 11, "name": "3", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"id": 14, "name": "2", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"id": 17, "name": "10", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"id": 20, "name": "K", "suit": "imgs/hearts.png", "color": "red", "source": "imgs/king.png"}
+    {"id": 2, "name": "2", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"id": 5, "name": "A", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"id": 8, "name": "4", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"id": 11, "name": "3", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"id": 14, "name": "2", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"id": 17, "name": "10", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"id": 20, "name": "K", "suit": "imgs/hearts.webp", "color": "red", "source": "imgs/king.webp"}
 ]
 let third = [
-    {"id": 3, "name": "3", "suit": "imgs/spades.png", "color": "black", "source": ""},
-    {"id": 6, "name": "2", "suit": "imgs/hearts.png", "color": "red", "source": ""},
-    {"id": 9, "name": "A", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"id": 12, "name": "4", "suit": "imgs/clubs.png", "color": "black", "source": ""},
-    {"id": 15, "name": "3", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"id": 18, "name": "J", "suit": "imgs/diamondsuit.png", "color": "red", "source": "imgs/jack.png"},
-    {"id": 21, "name": "JOKER", "suit": "imgs/jokersuit.png", "source":"imgs/joker.png"}
+    {"id": 3, "name": "3", "suit": "imgs/spades.webp", "color": "black", "source": ""},
+    {"id": 6, "name": "2", "suit": "imgs/hearts.webp", "color": "red", "source": ""},
+    {"id": 9, "name": "A", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"id": 12, "name": "4", "suit": "imgs/clubs.webp", "color": "black", "source": ""},
+    {"id": 15, "name": "3", "suit": "imgs/diamondsuit.webp", "color": "red", "source": ""},
+    {"id": 18, "name": "J", "suit": "imgs/diamondsuit.webp", "color": "red", "source": "imgs/jack.webp"},
+    {"id": 21, "name": "JOKER", "suit": "imgs/jokersuit.webp", "source":"imgs/joker.webp"}
 ]
 
 const dataFirst = first.map((value) => {
