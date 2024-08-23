@@ -114,7 +114,7 @@ let mainData = [
     {"name": "4", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
     {"name": "J", "suit": "imgs/diamondsuit.png", "color": "red", "source": "imgs/jack.png"},
     {"name": "3", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
-    {"name": "JOKER", "suit": "", "color": "", "source": "imgs/joker.png"}
+    {"name": "JOKER", "suit": "imgs/jokersuit.png", "color": "", "source": "imgs/joker.png"}
 ]
 
 const main = mainData.map((value) => {
@@ -185,7 +185,7 @@ let third = [
     {"id": 12, "name": "4", "suit": "imgs/clubs.png", "color": "black", "source": ""},
     {"id": 15, "name": "3", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
     {"id": 18, "name": "J", "suit": "imgs/diamondsuit.png", "color": "red", "source": "imgs/jack.png"},
-    {"id": 21, "name": "JOKER", "suit": "", "source":"imgs/joker.png"}
+    {"id": 21, "name": "JOKER", "suit": "imgs/jokersuit.png", "source":"imgs/joker.png"}
 ]
 
 const dataFirst = first.map((value) => {
