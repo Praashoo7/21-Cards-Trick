@@ -65,7 +65,7 @@ function closeHelp(){
 
     setTimeout(() => {
         document.getElementById('start').style.pointerEvents = 'auto';
-    }, 3100);
+    }, 4500);
 }
 
 
@@ -94,26 +94,26 @@ function start(){
 // let third = [3, 6, 9, 12, 15, 18, 21]
 
 let mainData = [
-    {"name": "A", "suit": "&spades;", "color": "black", "source": ""},
-    {"name": "3", "suit": "&hearts;", "color": "red", "source": ""},
-    {"name": "2", "suit": "&spades;", "color": "black", "source": ""},
-    {"name": "A", "suit": "&hearts;", "color": "red", "source": ""},
-    {"name": "3", "suit": "&spades;", "color": "black", "source": ""},
-    {"name": "2", "suit": "&clubs;", "color": "black", "source": ""},
-    {"name": "4", "suit": "&spades;", "color": "black", "source": ""},
-    {"name": "2", "suit": "&hearts;", "color": "red", "source": ""},
-    {"name": "4", "suit": "&hearts;", "color": "red", "source": ""},
-    {"name": "A", "suit": "&clubs;", "color": "black", "source": ""},
-    {"name": "3", "suit": "&clubs;", "color": "black", "source": ""},
-    {"name": "K", "suit": "&hearts;", "color": "red", "source": "imgs/king.png"},
-    {"name": "4", "suit": "&clubs;", "color": "black", "source": ""},
-    {"name": "A", "suit": "&diamondsuit;", "color": "red", "source": ""},
-    {"name": "2", "suit": "&diamondsuit;", "color": "red", "source": ""},
-    {"name": "Q", "suit": "&clubs;", "color": "black", "source": "imgs/queen.png"},
-    {"name": "10", "suit": "&hearts;", "color": "red", "source": ""},
-    {"name": "4", "suit": "&diamondsuit;", "color": "red", "source": ""},
-    {"name": "J", "suit": "&diamondsuit;", "color": "red", "source": "imgs/jack.png"},
-    {"name": "3", "suit": "&diamondsuit;", "color": "red", "source": ""},
+    {"name": "A", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"name": "3", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"name": "2", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"name": "A", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"name": "3", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"name": "2", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"name": "4", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"name": "2", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"name": "4", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"name": "A", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"name": "3", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"name": "K", "suit": "imgs/hearts.png", "color": "red", "source": "imgs/king.png"},
+    {"name": "4", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"name": "A", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
+    {"name": "2", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
+    {"name": "Q", "suit": "imgs/clubs.png", "color": "black", "source": "imgs/queen.png"},
+    {"name": "10", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"name": "4", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
+    {"name": "J", "suit": "imgs/diamondsuit.png", "color": "red", "source": "imgs/jack.png"},
+    {"name": "3", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
     {"name": "JOKER", "suit": "", "color": "", "source": "imgs/joker.png"}
 ]
 
@@ -127,14 +127,14 @@ const main = mainData.map((value) => {
         <div class="aCard" id="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
-            <div class="middle" id="${suitSymbol}" style="color: ${value.color}">
-                <img style="width:25px; height: 25px;" src="${value.source}">
+            <div class="middle">
+                <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
             </div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
        </div>
         `
@@ -143,12 +143,12 @@ const main = mainData.map((value) => {
         <div class="aCard" id="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
-            <div class="middle" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
+            <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" id="${suitSymbol}" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
         </div>
         `
@@ -161,30 +161,30 @@ document.getElementById('cards').innerHTML = main.join(" ");
 /* ------------------------------ SECOND-PAGE ------------------------------ */
 
 let first = [
-    {"id": 1, "name": "A", "suit": "&spades;", "color": "black", "source": ""},
-    {"id": 4, "name": "4", "suit": "&spades;", "color": "black", "source": ""},
-    {"id": 7, "name": "3", "suit": "&hearts;", "color": "red", "source": ""},
-    {"id": 10, "name": "2", "suit": "&clubs;", "color": "black", "source": ""},
-    {"id": 13, "name": "A", "suit": "&diamondsuit;", "color": "red", "source": ""},
-    {"id": 16, "name": "4", "suit": "&diamondsuit;", "color": "red", "source": ""},
-    {"id": 19, "name": "Q", "suit": "&clubs;", "color": "black", "source": "imgs/queen.png"}
+    {"id": 1, "name": "A", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"id": 4, "name": "4", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"id": 7, "name": "3", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"id": 10, "name": "2", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"id": 13, "name": "A", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
+    {"id": 16, "name": "4", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
+    {"id": 19, "name": "Q", "suit": "imgs/clubs.png", "color": "black", "source": "imgs/queen.png"}
 ]
 let second = [
-    {"id": 2, "name": "2", "suit": "&spades;", "color": "black", "source": ""},
-    {"id": 5, "name": "A", "suit": "&hearts;", "color": "red", "source": ""},
-    {"id": 8, "name": "4", "suit": "&hearts;", "color": "red", "source": ""},
-    {"id": 11, "name": "3", "suit": "&clubs;", "color": "black", "source": ""},
-    {"id": 14, "name": "2", "suit": "&diamondsuit;", "color": "red", "source": ""},
-    {"id": 17, "name": "10", "suit": "&hearts;", "color": "red", "source": ""},
-    {"id": 20, "name": "K", "suit": "&hearts;", "color": "red", "source": "imgs/king.png"}
+    {"id": 2, "name": "2", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"id": 5, "name": "A", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"id": 8, "name": "4", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"id": 11, "name": "3", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"id": 14, "name": "2", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
+    {"id": 17, "name": "10", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"id": 20, "name": "K", "suit": "imgs/hearts.png", "color": "red", "source": "imgs/king.png"}
 ]
 let third = [
-    {"id": 3, "name": "3", "suit": "&spades;", "color": "black", "source": ""},
-    {"id": 6, "name": "2", "suit": "&hearts;", "color": "red", "source": ""},
-    {"id": 9, "name": "A", "suit": "&clubs;", "color": "black", "source": ""},
-    {"id": 12, "name": "4", "suit": "&clubs;", "color": "black", "source": ""},
-    {"id": 15, "name": "3", "suit": "&diamondsuit;", "color": "red", "source": ""},
-    {"id": 18, "name": "J", "suit": "&diamondsuit;", "color": "red", "source": "imgs/jack.png"},
+    {"id": 3, "name": "3", "suit": "imgs/spades.png", "color": "black", "source": ""},
+    {"id": 6, "name": "2", "suit": "imgs/hearts.png", "color": "red", "source": ""},
+    {"id": 9, "name": "A", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"id": 12, "name": "4", "suit": "imgs/clubs.png", "color": "black", "source": ""},
+    {"id": 15, "name": "3", "suit": "imgs/diamondsuit.png", "color": "red", "source": ""},
+    {"id": 18, "name": "J", "suit": "imgs/diamondsuit.png", "color": "red", "source": "imgs/jack.png"},
     {"id": 21, "name": "JOKER", "suit": "", "source":"imgs/joker.png"}
 ]
 
@@ -194,14 +194,14 @@ const dataFirst = first.map((value) => {
         <div class="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
             <div class="middle">
-                <img style="width:25px; height: 25px;" src="${value.source}">
+                <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
             </div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
         </div>
         `
@@ -210,12 +210,12 @@ const dataFirst = first.map((value) => {
         <div class="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
-            <div class="middle" style="color: ${value.color}">${value.suit}</div>
+            <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
         </div>
         `
@@ -229,14 +229,14 @@ const dataSecond = second.map((value) => {
         <div class="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
             <div class="middle">
-                <img style="width:25px; height: 25px;" src="${value.source}">
+                <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
             </div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
         </div>
         `
@@ -245,12 +245,12 @@ const dataSecond = second.map((value) => {
         <div class="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
-            <div class="middle" style="color: ${value.color}">${value.suit}</div>
+            <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
         </div>
         `
@@ -264,14 +264,14 @@ const dataThird = third.map((value) => {
         <div class="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
             <div class="middle">
-                <img style="width:25px; height: 25px;" src="${value.source}">
+                <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
             </div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
         </div>
         `
@@ -280,12 +280,12 @@ const dataThird = third.map((value) => {
         <div class="aCard">
             <div class="upper">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
-            <div class="middle" style="color: ${value.color}">${value.suit}</div>
+            <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
             <div class="bottom">
                 <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
             </div>
         </div>
         `
@@ -362,14 +362,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -378,12 +378,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -435,14 +435,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -451,12 +451,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -470,14 +470,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -486,12 +486,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -505,14 +505,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -521,12 +521,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -541,14 +541,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -557,12 +557,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -576,14 +576,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -592,12 +592,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -611,14 +611,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -627,12 +627,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -664,14 +664,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -680,12 +680,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -737,14 +737,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -753,12 +753,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -772,14 +772,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -788,12 +788,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -807,14 +807,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -823,12 +823,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -843,14 +843,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -859,12 +859,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -878,14 +878,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -894,12 +894,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -913,14 +913,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -929,12 +929,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -965,14 +965,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -981,12 +981,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -1037,14 +1037,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -1053,12 +1053,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -1072,14 +1072,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -1088,12 +1088,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -1107,14 +1107,14 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                         <div class="middle">
-                                            <img style="width:25px; height: 25px;" src="${value.source}">
+                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                         </div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -1123,12 +1123,12 @@ function submitSelection(){
                                     <div class="aCard">
                                         <div class="upper">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
-                                        <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                         <div class="bottom">
                                             <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                         </div>
                                     </div>
                                     `
@@ -1143,14 +1143,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -1159,12 +1159,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -1178,14 +1178,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -1194,12 +1194,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -1213,14 +1213,14 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                     <div class="middle">
-                                        <img style="width:25px; height: 25px;" src="${value.source}">
+                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
                                     </div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `
@@ -1229,12 +1229,12 @@ function submitSelection(){
                                 <div class="aCard">
                                     <div class="upper">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
-                                    <div class="middle" style="color: ${value.color}">${value.suit}</div>
+                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
                                     <div class="bottom">
                                         <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol" style="color: ${value.color}">${value.suit}</div>
+                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
                                     </div>
                                 </div>
                                 `

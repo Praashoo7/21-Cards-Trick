@@ -517,7 +517,7 @@ body{
     width: 100%;
     flex-direction: column;
     font-size: 0.8em;
-    transform: translateY(-0.5em);
+
 }
 .upperJ{
     transform: translateY(-1.25em);
@@ -533,13 +533,20 @@ body{
     width: 100%;
     flex-direction: column;
     font-size: 0.8em;
-    transform: translateY(0.45em) translateX(-0.1em) rotate(180deg);
+    transform: translateX(-0.1em) rotate(180deg);
 }
 .bottomJ{
     transform: translateY(1.25em) translateX(0em) rotate(180deg);
 }
-#hearts, #diamonds{
-    color: red;
+
+.upper .symbol, .bottom .symbol{
+    width: 12px;
+    height: 12px;
+    transform: translateX(-0.15em);
+}
+.middle{
+    width: 30px;
+    height: 30px;
 }
 
 .blocks{
@@ -563,11 +570,11 @@ body{
     transition: all 0.4s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
-.thirdBlock .aCard:nth-child(7) .upper{
-    transform: translateY(-0.5em);
+.firstBlock .aCard:nth-child(7) .upper, .secondBlock .aCard:nth-child(7) .upper, .thirdBlock .aCard:nth-child(7) .upper{
+    transform: translateY(0em);
 }
-.thirdBlock .aCard:nth-child(7) .bottom{
-    transform: translateY(0.5em) rotate(180deg);
+.firstBlock .aCard:nth-child(7) .bottom, .secondBlock .aCard:nth-child(7) .bottom, .thirdBlock .aCard:nth-child(7) .bottom{
+    transform: translateY(0em) rotate(180deg);
 }
 
 
@@ -577,30 +584,6 @@ body{
 @media screen and (max-width:768px) {
     .mainH span{
         font-size: 1em;
-    }
-}
-@media screen and (max-width: 425px) {
-    .upper{
-        transform: translateY(-1em);
-    }
-    .symbol{
-        font-size: 0.25em;
-        transform: translateY(0.75em);
-    }
-    .bottom{
-        transform: translateY(1em) translateX(-0.1em) rotate(180deg);
-    }
-    .main .allCards .upper #JOKER, .main .allCards .bottom #JOKER{
-        transform: rotate(90deg) translateY(1.15em) translateX(0.85em);
-    }
-    .firstBlock .upper #JOKER, .secondBlock .upper #JOKER, .firstBlock .bottom #JOKER, .secondBlock .bottom #JOKER, .thirdBlock .upper #JOKER, .thirdBlock .bottom #JOKER, .answer .upper #JOKER, .answer .bottom #JOKER{
-        transform: rotate(90deg) translateY(1.15em) translateX(0.9em);
-    }
-    .upperJ{
-        transform: translateY(-0.25em);
-    }
-    .bottomJ{
-        transform: translateY(1.25em) translateX(0em) rotate(180deg);
     }
 }
 
@@ -1447,7 +1430,8 @@ label .col {
 
 
   #JOKER{
-    transform: rotate(90deg) translateY(1em) translateX(0.35em);
+    font-size: 0.85em;
+    transform: rotate(90deg) translateY(1em) translateX(0.8em);
   }
 
 
