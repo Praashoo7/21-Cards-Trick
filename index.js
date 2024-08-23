@@ -38,14 +38,6 @@ function closeHelp(){
             document.getElementById('main').style.opacity = 1
         }, 800);
         setTimeout(() => {
-            var elements = document.querySelectorAll('.aCard');
-            elements.forEach(function(element) {
-            var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
-            if (animation) {
-                element.style.animationPlayState = 'running';
-            }
-            });
-
             var audio = document.getElementById('firstAudio');
             var loopCount = 0;
 
@@ -59,6 +51,13 @@ function closeHelp(){
 
             audio.play();
             
+            var elements = document.querySelectorAll('.aCard');
+            elements.forEach(function(element) {
+            var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
+            if (animation) {
+                element.style.animationPlayState = 'running';
+            }
+            });
         }, 1200);
     }
 
