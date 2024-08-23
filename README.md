@@ -1,6 +1,6 @@
 # [21-Cards-Trick!](https://praashoo7.github.io/21-Cards-Trick/)
 
-![Readme Image](imgs/ReadMe-Images/MAIN.png)
+![Readme Image](imgs/ReadMe-Images/MAIN1.png)
 
 ## How to Start?
 
