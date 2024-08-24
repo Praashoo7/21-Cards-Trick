@@ -25,6 +25,7 @@ function closeHelp(){
     closeCount += 1
     document.getElementById('infoMain').style.opacity = 0
     document.getElementById('infoMain').style.zIndex = -2
+    let audio = document.getElementById('firstAudio');
     
     if(closeCount == 1){
 
@@ -38,26 +39,25 @@ function closeHelp(){
             document.getElementById('main').style.opacity = 1
         }, 800);
         setTimeout(() => {
-            var audio = document.getElementById('firstAudio');
-            var loopCount = 0;
+            let loopCount = 0;
 
-            audio.addEventListener('ended', function() {
-            loopCount++;
-            if (loopCount < 2) {
-                audio.currentTime = 0.83;
-                audio.play();
+            if(audio.play()){
+                audio.addEventListener('ended', function() {
+                loopCount++;
+                if (loopCount < 2) {
+                    audio.currentTime = 0.83;
+                    audio.play();
+                }
+                });
+                
+                var elements = document.querySelectorAll('.aCard');
+                elements.forEach(function(element) {
+                var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
+                if (animation) {
+                    element.style.animationPlayState = 'running';
+                }
+                });
             }
-            });
-
-            audio.play();
-            
-            var elements = document.querySelectorAll('.aCard');
-            elements.forEach(function(element) {
-            var animation = window.getComputedStyle(element, null).getPropertyValue('animation');
-            if (animation) {
-                element.style.animationPlayState = 'running';
-            }
-            });
         }, 1200);
     }
 
@@ -304,25 +304,26 @@ function submitSelection(){
         var audio = document.getElementById('middleAudio');
         var loopCount = 0;
 
-        audio.addEventListener('ended', function() {
-        loopCount++;
-        if(counter == 2){
-            audio.currentTime = 0;
-        } else {
-            if (loopCount < 2) {
-                if(loopCount == 1){
-                    setTimeout(() => {
-                        audio.currentTime = 0;
-                        audio.play();
-                    }, 450);
-                } else {
+        if(audio.play()){
+            audio.addEventListener('ended', function() {
+                loopCount++;
+                if(counter == 2){
                     audio.currentTime = 0;
-                    audio.play();
+                } else {
+                    if (loopCount < 2) {
+                        if(loopCount == 1){
+                            setTimeout(() => {
+                                audio.currentTime = 0;
+                                audio.play();
+                            }, 450);
+                        } else {
+                            audio.currentTime = 0;
+                            audio.play();
+                        }
+                    }
                 }
-            }
+            });
         }
-        });
-        audio.play();
 
         document.getElementById("submitSelection").style.pointerEvents = "none"
         setTimeout(() => {
