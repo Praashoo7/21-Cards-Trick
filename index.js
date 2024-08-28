@@ -186,107 +186,62 @@ let third = [
     {"id": 21, "name": "JOKER", "suit": "imgs/jokersuit.webp", "source":"imgs/joker.webp"}
 ]
 
+function blocksData1(name, suit, source){
+    return `
+    <div class="aCard">
+        <div class="upper">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+        <div class="middle">
+            <img style="width:30px; height: 30px; scale: 0.9" src="${source}">
+        </div>
+        <div class="bottom">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+    </div>
+    `
+}
+function blocksData2(name, suit){
+    return `
+    <div class="aCard">
+        <div class="upper">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+        <div class="middle"><img style="width:30px; height: 30px;" src="${suit}"></div>
+        <div class="bottom">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+    </div>
+    `
+}
+
 const dataFirst = first.map((value) => {
     if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-        return `
-        <div class="aCard">
-            <div class="upper">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-            <div class="middle">
-                <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-            </div>
-            <div class="bottom">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-        </div>
-        `
+        return blocksData1(value.name, value.suit, value.source)
     } else {
-        return `
-        <div class="aCard">
-            <div class="upper">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-            <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-            <div class="bottom">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-        </div>
-        `
+        return blocksData2(value.name, value.suit)
     }
 })
 document.getElementById("firstBlock").innerHTML = dataFirst.join("");
 
 const dataSecond = second.map((value) => {
     if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-        return `
-        <div class="aCard">
-            <div class="upper">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-            <div class="middle">
-                <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-            </div>
-            <div class="bottom">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-        </div>
-        `
+        return blocksData1(value.name, value.suit, value.source)
     } else {
-        return `
-        <div class="aCard">
-            <div class="upper">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-            <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-            <div class="bottom">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-        </div>
-        `
+        return blocksData2(value.name, value.suit)
     }
 })
 document.getElementById("secondBlock").innerHTML = dataSecond.join("");
 
 const dataThird = third.map((value) => {
     if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-        return `
-        <div class="aCard">
-            <div class="upper">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-            <div class="middle">
-                <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-            </div>
-            <div class="bottom">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-        </div>
-        `
+        return blocksData1(value.name, value.suit, value.source)
     } else {
-        return `
-        <div class="aCard">
-            <div class="upper">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-            <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-            <div class="bottom">
-                <div class="name" id="${value.name}">${value.name}</div>
-                <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-            </div>
-        </div>
-        `
+        return blocksData2(value.name, value.suit)
     }
 })
 document.getElementById("thirdBlock").innerHTML = dataThird.join("");
@@ -294,6 +249,40 @@ document.getElementById("thirdBlock").innerHTML = dataThird.join("");
 
 
 /* --------------------- SUBMIT-SELECTION-AND-FINAL ------------------------ */
+
+function secondScreenData1(name, suit, source){
+    return `
+    <div class="aCard">
+        <div class="upper">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+        <div class="middle">
+            <img style="width:30px; height: 30px; scale: 0.9" src="${source}">
+        </div>
+        <div class="bottom">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+    </div>
+    `
+}
+function secondScreenData2(name, suit){
+    return `
+    <div class="aCard">
+        <div class="upper">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+        <div class="middle"><img style="width:30px; height: 30px;" src="${suit}"></div>
+        <div class="bottom">
+            <div class="name" id="${name}">${name}</div>
+            <div class="symbol"><img style="width:12px; height: 12px;" src="${suit}"></div>
+        </div>
+    </div>
+    `
+}
+
 
 let all = []
 counter = 0
@@ -357,35 +346,9 @@ function submitSelection(){
                         const final = all.map((value) => {
                             if((all[10].name == value.name) && (all[10].suit == value.suit)){
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             }
                         })
@@ -422,7 +385,7 @@ function submitSelection(){
                             }, 50);
                             setTimeout(() => {
                                 document.getElementById('answer').classList.add('firework-animation')
-                            }, 80);
+                            }, 50);
                         }, 3200);
                     }
         
@@ -430,105 +393,27 @@ function submitSelection(){
                         setTimeout(() => {
                             const dataFirst = first.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                             })
                             document.getElementById("firstBlock").innerHTML = dataFirst.join("");
         
                             const dataSecond = second.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             })
                             document.getElementById("secondBlock").innerHTML = dataSecond.join("");
         
                             const dataThird = third.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             })
                             document.getElementById("thirdBlock").innerHTML = dataThird.join("");
@@ -536,105 +421,27 @@ function submitSelection(){
                     } else {
                         const dataFirst = first.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("firstBlock").innerHTML = dataFirst.join("");
         
                         const dataSecond = second.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("secondBlock").innerHTML = dataSecond.join("");
         
                         const dataThird = third.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("thirdBlock").innerHTML = dataThird.join("");
@@ -659,35 +466,9 @@ function submitSelection(){
                         const final = all.map((value) => {
                             if((all[10].name == value.name) && (all[10].suit == value.suit)){
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             }
                         })
@@ -732,105 +513,27 @@ function submitSelection(){
                         setTimeout(() => {
                             const dataFirst = first.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             })
                             document.getElementById("firstBlock").innerHTML = dataFirst.join("");
         
                             const dataSecond = second.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             })
                             document.getElementById("secondBlock").innerHTML = dataSecond.join("");
         
                             const dataThird = third.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             })
                             document.getElementById("thirdBlock").innerHTML = dataThird.join("");
@@ -838,105 +541,27 @@ function submitSelection(){
                     } else {
                         const dataFirst = first.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("firstBlock").innerHTML = dataFirst.join("");
         
                         const dataSecond = second.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("secondBlock").innerHTML = dataSecond.join("");
         
                         const dataThird = third.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("thirdBlock").innerHTML = dataThird.join("");
@@ -960,35 +585,9 @@ function submitSelection(){
                         const final = all.map((value) => {
                             if((all[10].name == value.name) && (all[10].suit == value.suit)){
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             }
                         })
@@ -1032,105 +631,27 @@ function submitSelection(){
                         setTimeout(() => {
                             const dataFirst = first.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                             })
                             document.getElementById("firstBlock").innerHTML = dataFirst.join("");
         
                             const dataSecond = second.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             })
                             document.getElementById("secondBlock").innerHTML = dataSecond.join("");
         
                             const dataThird = third.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle">
-                                            <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                        </div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData1(value.name, value.suit, value.source)
                                 } else {
-                                    return `
-                                    <div class="aCard">
-                                        <div class="upper">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                        <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                        <div class="bottom">
-                                            <div class="name" id="${value.name}">${value.name}</div>
-                                            <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                        </div>
-                                    </div>
-                                    `
+                                    return secondScreenData2(value.name, value.suit)
                                 }
                             })
                             document.getElementById("thirdBlock").innerHTML = dataThird.join("");
@@ -1138,111 +659,31 @@ function submitSelection(){
                     } else {
                         const dataFirst = first.map((value) => {
                                 if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("firstBlock").innerHTML = dataFirst.join("");
         
                         const dataSecond = second.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("secondBlock").innerHTML = dataSecond.join("");
         
                         const dataThird = third.map((value) => {
                             if((value.name == "K") || (value.name == "Q") || (value.name == "J") || (value.name == "JOKER")){
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle">
-                                        <img style="width:30px; height: 30px; scale: 0.9" src="${value.source}">
-                                    </div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData1(value.name, value.suit, value.source)
                             } else {
-                                return `
-                                <div class="aCard">
-                                    <div class="upper">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                    <div class="middle"><img style="width:30px; height: 30px;" src="${value.suit}"></div>
-                                    <div class="bottom">
-                                        <div class="name" id="${value.name}">${value.name}</div>
-                                        <div class="symbol"><img style="width:12px; height: 12px;" src="${value.suit}"></div>
-                                    </div>
-                                </div>
-                                `
+                                return secondScreenData2(value.name, value.suit)
                             }
                         })
                         document.getElementById("thirdBlock").innerHTML = dataThird.join("");
                     }
-                } else {
-                    alert("Select a Column!")
                 }
             }
         }, 1000);
@@ -1267,12 +708,6 @@ function submitSelection(){
             document.getElementById('radioButtons').classList.remove('pressRadioMan')
         }, 500);
     }
-}
-
-function closePop(ID) {
-    document.getElementById(ID).style.opacity = "0";
-    document.getElementById(ID).style.zIndex = "-10";
-    document.querySelector("body").style.overflow = "auto";
 }
 
 
