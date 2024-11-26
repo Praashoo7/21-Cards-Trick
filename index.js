@@ -9,8 +9,25 @@ window.addEventListener('load', function() {
       }
     });
     openHelp()
-  });
+});
 
+
+
+/* ----------------------------- BGIMG-ONLOAD ----------------------------- */
+
+const div = document.querySelector("#bgImg");
+const imageUrl = "imgs/leather.png";
+
+div.style.opacity = "0";
+  
+const img = new Image();
+img.src = imageUrl;
+  
+img.onload = function() {
+  div.style.backgroundImage = `url(${imageUrl})`;
+  div.style.opacity = "1";
+};
+  
 
 
 /* ----------------------------- INFO-POPUP ----------------------------- */
