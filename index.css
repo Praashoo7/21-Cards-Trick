@@ -735,7 +735,7 @@ label .col {
 
 /* START-AND-SUBMIT-SELECTION-BUTTONS */
 
-.start, .submitSelection{
+.start, .submitSelection, .reloadBtn {
     border: none;
     outline: none;
     padding: 1em 2.75em 1em 1.25em;
@@ -755,6 +755,42 @@ label .col {
     transition: all 0.2s ease-in-out;
     pointer-events: none;
 }
+.reloadBtn{
+    position: absolute;
+    transform: translateY(9em);
+    display: none;
+    opacity: 0;
+    padding: 1em 1em 0.83em 1em;
+    cursor: pointer;
+    pointer-events: auto;
+}
+.reloadSVG{
+    transition: all 0.2s ease-in-out;
+}
+.animate-icon {
+  animation: reloadSVGAn 1s ease-in-out forwards;
+}
+
+@keyframes rotateIcon {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes reloadSVGAn {
+    0%{
+        transform: rotate(0deg);
+        transform-origin: center;
+    }
+    50%{
+        transform: rotate(70deg);
+        transform-origin: center;
+    }
+    0%{
+        transform: rotate(0deg);
+        transform-origin: center;
+    }
+}
+
 .submitSelection{
     margin-top: 0;
     padding: 0.85em 1.25em 1em 1.25em;

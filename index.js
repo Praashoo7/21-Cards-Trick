@@ -8,7 +8,25 @@ window.addEventListener('load', function() {
         element.style.animationPlayState = 'paused';
       }
     });
-    openHelp()
+    let helpShown = this.localStorage.getItem("helpShown")
+    if(!helpShown){
+        openHelp()
+    } else {
+        closeHelp()
+    }
+    this.localStorage.setItem("helpShown", true)
+});
+
+
+
+/* ----------------------------- ANIMATE-RELOAD-ICON ----------------------------- */
+
+const icon = document.querySelector('.reloadSVG');
+icon.addEventListener('animationend', () => {
+  icon.classList.remove('animate-icon');
+});
+document.querySelector('.reloadBtn').addEventListener('mouseenter', () => {
+  icon.classList.add('animate-icon');
 });
 
 
@@ -404,6 +422,12 @@ function submitSelection(){
                                 document.getElementById('answer').classList.add('firework-animation')
                             }, 50);
                         }, 3200);
+                        setTimeout(() => {
+                            document.getElementById('reloadBtn').style.display = "flex"
+                        }, 5000);
+                        setTimeout(() => {
+                            document.getElementById('reloadBtn').style.opacity = 1
+                        }, 5100);
                     }
         
                     if(counter == 3){
@@ -524,6 +548,12 @@ function submitSelection(){
                                 document.getElementById('answer').classList.add('firework-animation')
                             }, 50);
                         }, 3200);
+                        setTimeout(() => {
+                            document.getElementById('reloadBtn').style.display = "flex"
+                        }, 5000);
+                        setTimeout(() => {
+                            document.getElementById('reloadBtn').style.opacity = 1
+                        }, 5100);
                     }
         
                     if(counter == 3){
@@ -643,6 +673,12 @@ function submitSelection(){
                                 document.getElementById('answer').classList.add('firework-animation')
                             }, 50);
                         }, 3200);
+                        setTimeout(() => {
+                            document.getElementById('reloadBtn').style.display = "flex"
+                        }, 5000);
+                        setTimeout(() => {
+                            document.getElementById('reloadBtn').style.opacity = 1
+                        }, 5100);
                     }
                     if(counter == 3){
                         setTimeout(() => {
@@ -811,3 +847,13 @@ window.addEventListener('resize', function(){
         document.querySelector('.muteCheck').style.display = 'flex'
     }
 })
+
+function reloadIt(){
+    document.getElementById("main").style.opacity = 0
+    document.getElementById("mainH").style.opacity = 0
+    document.getElementById("buttonSet").style.opacity = 0
+    document.getElementById("muteCheck").style.opacity = 0
+    setTimeout(() => {
+        window.location.reload()
+    }, 500);
+}
